@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  padding:0;
+  overflow-x:hidden;
+  font-family: Inter, sans-serif;
+  background:black;
+  color:white;
+}
+
+/* PILL MARQUEE */
+
+.pill-marquee{
+  overflow:hidden;
+}
+
+.pill-track{
+
+  display:flex;
+  align-items:center;
+
+  gap:1.25rem;
+
+  width:max-content;
+
+  animation:
+    pillScroll 28s linear infinite;
+}
+
+@keyframes pillScroll{
+
+  from{
+    transform:translateX(0);
+  }
+
+  to{
+    transform:translateX(-50%);
+  }
+}

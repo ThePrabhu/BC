@@ -1,0 +1,228 @@
+.intro-container{
+  position:fixed;
+  inset:0;
+
+  background:black;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  overflow:hidden;
+
+  z-index:99999;
+}
+
+/* AMBIENT */
+
+.ambient-light{
+  position:absolute;
+
+  width:800px;
+  height:800px;
+
+  border-radius:50%;
+
+  background:rgba(120,0,0,0.15);
+
+  filter:blur(180px);
+}
+
+/* SCENE */
+
+.scene{
+  perspective:2200px;
+}
+
+/* BOOK */
+
+.book{
+  position:relative;
+
+  width:300px;
+  height:400px;
+
+  transform-style:preserve-3d;
+}
+
+/* SHADOW */
+
+.book-shadow{
+  position:absolute;
+
+  left:50%;
+  bottom:-70px;
+
+  transform:translateX(-50%);
+
+  width:240px;
+  height:50px;
+
+  border-radius:50%;
+
+  background:black;
+
+  filter:blur(30px);
+
+  opacity:0.8;
+}
+
+/* BACK COVER */
+
+.back-cover{
+  position:absolute;
+  inset:0;
+
+  border-radius:4px 8px 8px 4px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #111,
+      #050505
+    );
+
+  border:
+    1px solid rgba(255,255,255,0.05);
+}
+
+/* COVER */
+
+.cover{
+  position:absolute;
+  inset:0;
+
+  z-index:50;
+
+  transform-origin:left center;
+
+  border-radius:4px 8px 8px 4px;
+
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #181818,
+      #080808
+    );
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  box-shadow:
+    0 20px 80px rgba(0,0,0,0.5);
+}
+
+/* LOGO */
+
+.logo{
+  width:80%;
+  object-fit:contain;
+}
+
+/* PAGES */
+
+.page{
+  position:absolute;
+
+  left:4px;
+  top:4px;
+
+  width:292px;
+  height:392px;
+
+  background:white;
+
+  border-radius:2px;
+
+  transform-origin:left center;
+
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* PAGE FLIPS */
+
+.page1{
+  z-index:45;
+  animation:flipPage .8s ease forwards;
+  animation-delay:1.5s;
+}
+
+.page2{
+  z-index:44;
+  animation:flipPage .8s ease forwards;
+  animation-delay:1.7s;
+}
+
+.page3{
+  z-index:43;
+  animation:flipPage .8s ease forwards;
+  animation-delay:1.9s;
+}
+
+.page4{
+  z-index:42;
+  animation:flipPage .8s ease forwards;
+  animation-delay:2.1s;
+}
+
+.page5{
+  z-index:41;
+  animation:flipPage .8s ease forwards;
+  animation-delay:2.3s;
+}
+
+/* FLASH */
+
+.flash{
+
+  position:absolute;
+  inset:0;
+
+  background:white;
+
+  opacity:0;
+
+  pointer-events:none;
+
+  filter:blur(8px);
+
+  mix-blend-mode:screen;
+}
+.flash::after{
+
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,255,255,0.95) 0%,
+      rgba(255,255,255,0.65) 35%,
+      rgba(255,255,255,0) 75%
+    );
+}
+/* KEYFRAMES */
+
+@keyframes flipPage{
+
+  0%{
+    transform:rotateY(0deg);
+  }
+
+  50%{
+    transform:rotateY(-90deg);
+  }
+
+  100%{
+    transform:rotateY(-180deg);
+  }
+}
