@@ -1,6 +1,6 @@
 import "./IntroAnimation.css"
 
-import { motion, AnimatePresence } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 import { useEffect, useState } from "react"
 
 import logo from "../assets/logo.png"
@@ -13,7 +13,7 @@ export default function IntroAnimation() {
 
     const timer = setTimeout(() => {
       setShowIntro(false)
-    }, 4500)
+    }, 7600)
 
     return () => clearTimeout(timer)
 
@@ -29,26 +29,26 @@ export default function IntroAnimation() {
 
           className="intro-container"
 
-          style={{
-            pointerEvents: showIntro ? "auto" : "none"
-          }}
-
           initial={{ opacity: 1 }}
 
           exit={{
             opacity: 0,
             transition: {
-              duration: 1,
-              ease: [0.76, 0, 0.24, 1],
+              duration: 0.7,
+              ease: "easeOut",
             },
           }}
         >
 
-          {/* Ambient */}
+          {/* AMBIENT */}
+
           <div className="ambient-light"></div>
 
-          {/* Book */}
+          {/* SCENE */}
+
           <div className="scene">
+
+            {/* BOOK */}
 
             <motion.div
 
@@ -56,53 +56,166 @@ export default function IntroAnimation() {
 
               initial={{
                 opacity: 0,
-                scale: 0.7,
-                rotateX: 20,
-                rotateY: -25,
-                y: 60,
+                y: 500,
+                rotateX: 42,
+                rotateZ: -10,
+                scale: 0.82,
               }}
 
               animate={{
                 opacity: 1,
-                scale: 1,
-                rotateX: 8,
-                rotateY: -15,
-                y: 0,
+
+                y: [500, -40, 20, 0],
+
+                rotateX: [42, 16, 5, 8],
+
+                rotateZ: [-10, 2, 0, 0],
+
+                scale: [0.82, 1.02, 1, 1],
               }}
 
               transition={{
-                duration: 1.4,
+                duration: 2.2,
+                times: [0, 0.62, 0.82, 1],
                 ease: [0.22, 1, 0.36, 1],
               }}
             >
 
-              {/* Shadow */}
+              {/* SHADOW */}
+
               <div className="book-shadow"></div>
 
-              {/* Back Cover */}
+              {/* BACK COVER */}
+
               <div className="back-cover"></div>
 
-              {/* Pages */}
+              {/* PAGES WRAPPER */}
 
-              <div className="page page1"></div>
-              <div className="page page2"></div>
-              <div className="page page3"></div>
-              <div className="page page4"></div>
-              <div className="page page5"></div>
+              <div className="pages-wrapper">
 
-              {/* Front Cover */}
+                {/* PAGE 1 */}
+
+                <div className="page page1">
+
+                  <div className="page-content">
+
+                    <span>01</span>
+
+                    <h2>
+                      A new chapter opens.
+                    </h2>
+
+                    <p>
+                      Beyond classrooms.
+                      Beyond limits.
+                    </p>
+
+                  </div>
+
+                </div>
+
+                {/* PAGE 2 */}
+
+                <div className="page page2">
+
+                  <div className="page-content">
+
+                    <span>02</span>
+
+                    <h2>
+                      Ideas become reality.
+                    </h2>
+
+                    <p>
+                      Hackathons, AI workshops,
+                      and creation-driven learning.
+                    </p>
+
+                  </div>
+
+                </div>
+
+                {/* PAGE 3 */}
+
+                <div className="page page3">
+
+                  <div className="page-content">
+
+                    <span>03</span>
+
+                    <h2>
+                      Students find their stage.
+                    </h2>
+
+                    <p>
+                      Open mics, startup pitches,
+                      and real experiences.
+                    </p>
+
+                  </div>
+
+                </div>
+
+                {/* PAGE 4 */}
+
+                <div className="page page4">
+
+                  <div className="page-content">
+
+                    <span>04</span>
+
+                    <h2>
+                      Connections create momentum.
+                    </h2>
+
+                    <p>
+                      Mentors, founders,
+                      and ambitious students together.
+                    </p>
+
+                  </div>
+
+                </div>
+
+                {/* PAGE 5 */}
+
+                <div className="page page5">
+
+                  <div className="page-content">
+
+                    <span>05</span>
+
+                    <h2>
+                      The ecosystem begins.
+                    </h2>
+
+                    <p>
+                      Welcome to ByondCampuz.
+                    </p>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              {/* COVER */}
 
               <motion.div
 
                 className="cover"
 
-                initial={{ rotateY: 0 }}
+                initial={{
+                  rotateY: 0,
+                }}
 
-                animate={{ rotateY: -160 }}
+                animate={{
+                  rotateY: -160,
+                }}
 
                 transition={{
-                  delay: 1,
-                  duration: 1,
+                  delay: 3.2,
+                  duration: 1.2,
                   ease: [0.76, 0, 0.24, 1],
                 }}
               >
@@ -118,25 +231,6 @@ export default function IntroAnimation() {
             </motion.div>
 
           </div>
-
-          {/* Flash */}
-
-          <motion.div
-
-            className="flash"
-
-            initial={{ opacity: 0 }}
-
-            animate={{
-              opacity: [0, 1, 1],
-            }}
-
-            transition={{
-              duration: 1.2,
-              delay: 3.2,
-              ease: "easeInOut",
-            }}
-          />
 
         </motion.div>
 
