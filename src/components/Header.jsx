@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 
-import darkLogo from "../assets/logo.png"
-import lightLogo from "../assets/BCLogo.png"
+import Logo from "../assets/BCLogo.png"
 
 import {
   HiOutlineMenuAlt3,
@@ -114,7 +113,7 @@ function Header() {
 {/* LOGO */}
 
 <img
-  src={darkMode ? darkLogo : lightLogo}
+  src={Logo}
   alt="ByondCampuz"
 
   className={`
@@ -125,7 +124,7 @@ function Header() {
     ${
       darkMode
         ? "h-20  md:h-35 "
-        : "h-16 md:h-[72px]"
+        : "h-20  md:h-35 "
     }
   `}
 />
