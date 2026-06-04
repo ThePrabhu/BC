@@ -1,4 +1,5 @@
 import { motion } from "framer-motion"
+import speaker from "../../assets/swaroop.png"
 
 const events = [
   {
@@ -225,7 +226,7 @@ function EventGallery() {
             "
           >
             <img
-              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop"
+              src={speaker}
               alt="Speaker"
               className="
                 h-[450px]

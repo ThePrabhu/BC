@@ -17,7 +17,7 @@ export const team = [
 
   {
     name: "Abdul",
-    role: "Executive Director",
+    role: "CFO & Executive Director",
     image: "...",
     quote:
       "Strategy turns ambition into measurable impact."
@@ -25,7 +25,7 @@ export const team = [
 
   {
     name: "Prabhu",
-    role: "Technical Co-Founder",
+    role: "CTO & Executive Director",
     image: "...",
     quote:
       "Technology should create access, not barriers."

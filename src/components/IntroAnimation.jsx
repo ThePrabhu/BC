@@ -3,7 +3,7 @@ import "./IntroAnimation.css"
 import { AnimatePresence, motion } from "framer-motion"
 import { useEffect, useState } from "react"
 
-import logo from "../assets/logo.png"
+import logo from "../assets/BCLogo.png"
 
 export default function IntroAnimation() {
 
@@ -13,7 +13,7 @@ export default function IntroAnimation() {
 
     const timer = setTimeout(() => {
       setShowIntro(false)
-    }, 7600)
+    }, 9500)
 
     return () => clearTimeout(timer)
 
@@ -56,27 +56,27 @@ export default function IntroAnimation() {
 
               initial={{
                 opacity: 0,
-                y: 500,
-                rotateX: 42,
-                rotateZ: -10,
-                scale: 0.82,
+                y: 50,
+                rotateX: 18,
+                rotateZ: -4,
+                scale: 0.92,
               }}
 
               animate={{
                 opacity: 1,
 
-                y: [500, -40, 20, 0],
+                y: [50, -10, 0],
 
-                rotateX: [42, 16, 5, 8],
+                rotateX: [18, 6, 8],
 
-                rotateZ: [-10, 2, 0, 0],
+                rotateZ: [-4, 0, 0],
 
-                scale: [0.82, 1.02, 1, 1],
+                scale: [0.92, 1.02, 1],
               }}
 
               transition={{
                 duration: 2.2,
-                times: [0, 0.62, 0.82, 1],
+                times: [0, 0.68, 1],
                 ease: [0.22, 1, 0.36, 1],
               }}
             >
@@ -84,6 +84,12 @@ export default function IntroAnimation() {
               {/* SHADOW */}
 
               <div className="book-shadow"></div>
+
+              {/* PAGE STACK */}
+
+              <div className="page-stack stack1"></div>
+              <div className="page-stack stack2"></div>
+              <div className="page-stack stack3"></div>
 
               {/* BACK COVER */}
 
@@ -210,12 +216,13 @@ export default function IntroAnimation() {
                 }}
 
                 animate={{
-                  rotateY: -160,
+                  rotateY: [0, -160, -160, 0],
                 }}
 
                 transition={{
                   delay: 3.2,
-                  duration: 1.2,
+                  duration: 6.2,
+                  times: [0, 0.2, 0.78, 1],
                   ease: [0.76, 0, 0.24, 1],
                 }}
               >

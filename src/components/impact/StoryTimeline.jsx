@@ -1,4 +1,18 @@
 import { motion } from "framer-motion"
+import { useState, useEffect } from "react"
+
+import rgm1 from "../../assets/RGM1.JPG"
+import rgm2 from "../../assets/RGM2.JPG"
+import rgm3 from "../../assets/RGM3.JPG"
+
+import CE1 from "../../assets/CE1.JPG"
+import CE2 from "../../assets/CE2.JPG"
+import CE3 from "../../assets/CE3.JPG"
+
+import GPREC1 from "../../assets/GPREC1.png"
+import GPREC2 from "../../assets/GPREC2.png"
+import GPREC3 from "../../assets/GPREC3.png"
+
 
 const stories = [
   {
@@ -7,8 +21,11 @@ const stories = [
     college: "RGM College of Engineering & Technology",
     location: "Kurnool, Andhra Pradesh",
 
-    image:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop",
+    images: [
+      rgm1,
+      rgm2,
+      rgm3,
+    ],
 
     description:
       "Marathon Hackathon became one of ByondCampuz's defining milestones. Students spent 24 hours solving real-world problems, building solutions, collaborating under pressure, and experiencing innovation beyond traditional classrooms.",
@@ -27,9 +44,11 @@ const stories = [
     college: "G. Pullareddy College of Engineering (GPREC)",
     location: "Kurnool, Andhra Pradesh",
 
-    image:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop",
-
+    images: [
+      GPREC1,
+      GPREC2,
+     GPREC3,
+    ],
     description:
       "Hosted at one of Kurnool's most respected engineering institutions, OutsysLayer challenged students to move beyond coding and think in systems. The event combined architecture, innovation, mentorship, and practical problem solving.",
 
@@ -47,9 +66,11 @@ const stories = [
     college: "IIIT",
     location: "Andhra Pradesh",
 
-    image:
-      "https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=2070&auto=format&fit=crop",
-
+    images: [
+      CE1,
+     CE2,
+      CE3,
+    ],
     description:
       "The IIIT event exceeded expectations. Student participation surprised everyone and the atmosphere became a hub of innovation, networking, and learning. The presence of renowned tech creator Swaroop added inspiration and energy to the experience.",
 
@@ -61,6 +82,74 @@ const stories = [
     ],
   },
 ]
+
+
+function ImageCarousel({ images, title }) {
+  const [active, setActive] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActive((prev) => (prev === images.length - 1 ? 0 : prev + 1))
+    }, 1500)
+
+    return () => clearInterval(interval)
+  }, [images.length])
+
+  return (
+    <div className="relative group">
+      <div
+        className="
+          absolute
+          -inset-4
+          rounded-[40px]
+          bg-[#800000]/15
+          blur-2xl
+          opacity-0
+          group-hover:opacity-100
+          transition-all
+          duration-700
+        "
+      />
+      <div className="relative w-full h-[300px] md:h-[500px] rounded-[32px] shadow-2xl overflow-hidden">
+        {images.map((image, index) => (
+          <img
+            key={index}
+            src={image}
+            alt={`${title} - slide ${index + 1}`}
+            className={`
+              absolute
+              w-full
+              h-full
+              object-cover
+              transition-opacity
+              duration-1000
+              ${active === index ? "opacity-100" : "opacity-0"}
+            `}
+          />
+        ))}
+      </div>
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2">
+        {images.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setActive(index)}
+            className={`
+              rounded-full
+              transition-all
+              duration-300
+              ${
+                active === index
+                  ? "w-8 h-2 bg-white"
+                  : "w-2 h-2 bg-white/50"
+              }
+            `}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
 
 function StoryTimeline() {
   return (
@@ -204,46 +293,7 @@ function StoryTimeline() {
             >
               {/* IMAGE */}
 
-              <div className="relative group">
-                <div
-                  className="
-                    absolute
-                    -inset-4
-
-                    rounded-[40px]
-
-                    bg-[#800000]/15
-
-                    blur-2xl
-
-                    opacity-0
-
-                    group-hover:opacity-100
-
-                    transition-all
-                    duration-700
-                  "
-                />
-
-                <img
-                  src={story.image}
-                  alt={story.title}
-                  className="
-                    relative
-
-                    w-full
-
-                    h-[300px]
-                    md:h-[500px]
-
-                    object-cover
-
-                    rounded-[32px]
-
-                    shadow-2xl
-                  "
-                />
-              </div>
+              <ImageCarousel images={story.images} title={story.title} />
 
               {/* CONTENT */}
 

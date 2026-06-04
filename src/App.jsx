@@ -7,6 +7,7 @@ import ImpactSection from "./components/impact/ImpactSection"
 import EventUniverse from "./components/events/EventUniverse"
 import AboutSection from "./components/about/AboutSection"
 import JoinSection from "./components/join/JoinSection"
+import Footer from "./components/footer/Footer"
 
 
 
@@ -21,6 +22,7 @@ function App() {
       <EventUniverse />
       <AboutSection />
       <JoinSection />
+      <Footer />
 
 
     </div>
