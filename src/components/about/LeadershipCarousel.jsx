@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { team } from "./teamData"
 
 function LeadershipCarousel() {
@@ -92,163 +92,95 @@ function LeadershipCarousel() {
           </p>
         </motion.div>
 
-        {/* MAIN CARD */}
+        {/* ACTIVE MEMBER */}
 
-        <div className="mt-20 max-w-6xl mx-auto">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={member.name}
-              initial={{
-                opacity: 0,
-                scale: 0.95,
-              }}
-              animate={{
-                opacity: 1,
-                scale: 1,
-              }}
-              exit={{
-                opacity: 0,
-                scale: 0.95,
-              }}
-              transition={{
-                duration: 0.4,
-              }}
-              className="
-                grid
-                lg:grid-cols-2
+        <motion.div
+          key={member.name}
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.4,
+          }}
+          className="
+            mt-20
 
-                overflow-hidden
+            max-w-4xl
+            mx-auto
 
-                rounded-[40px]
+            text-center
+          "
+        >
+          <h3
+            className="
+              text-4xl
+              md:text-6xl
 
-                bg-white
-                dark:bg-[#0c0c0c]
+              font-bold
 
-                border
+              text-[#111111]
+              dark:text-white
+            "
+          >
+            {member.name}
+          </h3>
 
-                border-black/10
-                dark:border-white/10
+          <p
+            className="
+              mt-4
 
-                shadow-2xl
-              "
-            >
-              {/* IMAGE */}
+              text-xl
 
-              <div className="relative">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="
-                    h-full
-                    min-h-[450px]
+              text-[#800000]
 
-                    w-full
+              font-semibold
+            "
+          >
+            {member.role}
+          </p>
 
-                    object-cover
-                  "
-                />
+          <div
+            className="
+              mt-6
 
-                <div
-                  className="
-                    absolute
-                    inset-0
+              w-20
+              h-[2px]
 
-                    bg-gradient-to-t
-                    from-black/60
-                    via-transparent
-                    to-transparent
-                  "
-                />
-              </div>
+              mx-auto
 
-              {/* CONTENT */}
+              bg-[#800000]/30
+            "
+          />
 
-              <div
-                className="
-                  p-10
-                  md:p-14
+          <blockquote
+            className="
+              mt-10
 
-                  flex
-                  flex-col
-                  justify-center
-                "
-              >
-                <p
-                  className="
-                    uppercase
+              text-2xl
+              md:text-3xl
 
-                    tracking-[0.3em]
+              leading-relaxed
 
-                    text-[#800000]
+              font-medium
 
-                    text-xs
-
-                    font-bold
-                  "
-                >
-                  Leadership
-                </p>
-
-                <h3
-                  className="
-                    mt-4
-
-                    text-4xl
-                    md:text-5xl
-
-                    font-bold
-
-                    text-[#111111]
-                    dark:text-white
-                  "
-                >
-                  {member.name}
-                </h3>
-
-                <p
-                  className="
-                    mt-3
-
-                    text-lg
-
-                    text-[#800000]
-
-                    font-semibold
-                  "
-                >
-                  <span className="font-light text-black/60 dark:text-white/60">
-                    Role:{" "}
-                  </span>
-                  {member.role}
-                </p>
-
-                <blockquote
-                  className="
-                    mt-10
-
-                    text-2xl
-                    md:text-3xl
-
-                    font-medium
-
-                    leading-relaxed
-
-                    text-[#111111]
-                    dark:text-white
-                  "
-                >
-                  "{member.quote}"
-                </blockquote>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
+              text-[#111111]
+              dark:text-white
+            "
+          >
+            "{member.quote}"
+          </blockquote>
+        </motion.div>
 
         {/* MEMBER SELECTOR */}
 
         <div
           className="
-            mt-12
+            mt-14
 
             flex
             flex-wrap

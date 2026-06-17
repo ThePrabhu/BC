@@ -233,7 +233,7 @@ function Footer() {
                     className="text-[#800000]"
                 />
 
-                <span>+91 XXXXX XXXXX</span>
+                <span>+91 86887 86018</span>
                 </a>
 
                 {/* LINKEDIN */}

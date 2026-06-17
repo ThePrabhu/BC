@@ -6,6 +6,8 @@ import {
   ArrowRight,
 } from "lucide-react"
 
+const whatsappNumber = "8688786018"
+
 const paths = [
   {
     icon: GraduationCap,
@@ -13,6 +15,8 @@ const paths = [
     description:
       "Join hackathons, workshops, networking events, and experiences designed to accelerate your growth.",
     button: "Become A Member",
+    message:
+      "Hi ByondCampuz, I am a student and would like to know more about joining the community.",
   },
 
   {
@@ -21,6 +25,8 @@ const paths = [
     description:
       "Bring ByondCampuz experiences to your campus and unlock opportunities for your students.",
     button: "Partner With Us",
+    message:
+      "Hi ByondCampuz, I represent a school/college and would like to discuss a partnership.",
   },
 
   {
@@ -29,6 +35,8 @@ const paths = [
     description:
       "Collaborate, mentor, sponsor, hire, and help shape the next generation of talent.",
     button: "Let's Collaborate",
+    message:
+      "Hi ByondCampuz, I am interested in collaborating as an industry partner.",
   },
 ]
 
@@ -237,23 +245,33 @@ function JoinMovement() {
                     {item.description}
                   </p>
 
-                  <button
+                  <a
+                    href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+                      item.message
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="
                       mt-10
 
-                      flex
+                      inline-flex
                       items-center
                       gap-3
 
                       text-[#800000]
 
                       font-semibold
+
+                      hover:gap-4
+
+                      transition-all
+                      duration-300
                     "
                   >
                     {item.button}
 
                     <ArrowRight size={18} />
-                  </button>
+                  </a>
                 </div>
               </motion.div>
             )

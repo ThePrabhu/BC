@@ -1,6 +1,6 @@
 export const team = [
   {
-    name: "Ramu Akula",
+    name: "Ramu",
     role: "Founder",
     image: "...",
     quote:

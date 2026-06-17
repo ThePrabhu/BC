@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import speaker from "../../assets/swaroop.png"
+import speaker from "../../assets/swaroop2.png"
 
 const events = [
   {
@@ -188,105 +188,246 @@ function EventGallery() {
           ))}
         </div>
 
-        {/* SWAROOP FEATURE */}
+      {/* SWAROOP FEATURE */}
 
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 40,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-          }}
+{/* SWAROOP FEATURE */}
+
+<motion.div
+  initial={{
+    opacity: 0,
+    y: 40,
+  }}
+  whileInView={{
+    opacity: 1,
+    y: 0,
+  }}
+  viewport={{
+    once: true,
+  }}
+  transition={{
+    duration: 0.8,
+  }}
+  className="
+    mt-20
+
+    overflow-hidden
+
+    rounded-[40px]
+
+    border
+
+    border-black/10
+    dark:border-white/10
+
+    bg-[#fafafa]
+    dark:bg-[#0c0c0c]
+
+    shadow-xl
+  "
+>
+  <div
+    className="
+      grid
+      lg:grid-cols-2
+
+      items-center
+    "
+  >
+    {/* IMAGE */}
+<div
+  className="
+    relative
+
+    bg-[#f5f5f5]
+    dark:bg-[#111111]
+
+    flex
+    items-center
+    justify-center
+
+    h-[420px]
+    lg:h-[500px]
+  "
+>
+  <img
+    src={speaker}
+    alt="Swaroop"
+    className="
+      h-full
+      w-auto
+
+      object-contain
+    "
+  />
+
+  <div
+    className="
+      absolute
+      bottom-5
+      left-5
+
+      px-4
+      py-2
+
+      rounded-full
+
+      bg-black/80
+
+      text-white
+
+      text-xs
+
+      tracking-[0.2em]
+      uppercase
+    "
+  >
+    Tech Creator
+  </div>
+</div>
+
+    {/* CONTENT */}
+
+    <div
+      className="
+        p-8
+        lg:p-12
+      "
+    >
+      <p
+        className="
+          uppercase
+
+          tracking-[0.35em]
+
+          text-[#800000]
+
+          text-xs
+
+          font-bold
+        "
+      >
+        Featured Speaker
+      </p>
+
+      <h3
+        className="
+          mt-5
+
+          text-4xl
+          md:text-5xl
+          lg:text-5xl
+
+          font-bold
+
+          leading-none
+
+          text-[#111111]
+          dark:text-white
+        "
+      >
+        Swaroop
+      </h3>
+
+      <div
+        className="
+          mt-6
+
+          w-20
+          h-[2px]
+
+          bg-[#800000]/30
+        "
+      />
+
+      <p
+        className="
+          mt-8
+
+          text-base
+          md:text-lg
+
+          leading-relaxed
+
+          text-black/65
+          dark:text-white/65
+        "
+      >
+        Bringing industry insights,
+        inspiration, and real-world
+        experiences to ambitious students
+        eager to build the future.
+      </p>
+
+      <div
+        className="
+          mt-8
+
+          flex
+          flex-wrap
+
+          gap-3
+        "
+      >
+        <span
           className="
-            mt-20
+            px-4
+            py-2
 
-            overflow-hidden
+            rounded-full
 
-            rounded-[40px]
+            bg-[#800000]/10
 
-            border
+            text-[#800000]
 
-            border-black/10
-            dark:border-white/10
+            text-sm
 
-            bg-[#fafafa]
-            dark:bg-[#0c0c0c]
+            font-medium
           "
         >
-          <div
-            className="
-              grid
-              lg:grid-cols-2
-              items-center
-            "
-          >
-            <img
-              src={speaker}
-              alt="Speaker"
-              className="
-                h-[450px]
-                w-full
+          Tech Creator
+        </span>
 
-                object-cover
-              "
-            />
+        <span
+          className="
+            px-4
+            py-2
 
-            <div className="p-10 md:p-16">
-              <p
-                className="
-                  uppercase
+            rounded-full
 
-                  tracking-[0.3em]
+            bg-[#800000]/10
 
-                  text-[#800000]
+            text-[#800000]
 
-                  text-xs
+            text-sm
 
-                  font-bold
-                "
-              >
-                Featured Speaker
-              </p>
+            font-medium
+          "
+        >
+          Mentor
+        </span>
 
-              <h3
-                className="
-                  mt-4
+        <span
+          className="
+            px-4
+            py-2
 
-                  text-4xl
-                  md:text-6xl
+            rounded-full
 
-                  font-bold
+            bg-[#800000]/10
 
-                  text-[#111111]
-                  dark:text-white
-                "
-              >
-                Swaroop
-              </h3>
+            text-[#800000]
 
-              <p
-                className="
-                  mt-6
+            text-sm
 
-                  leading-relaxed
-
-                  text-black/65
-                  dark:text-white/65
-                "
-              >
-                Bringing industry insights,
-                inspiration, and real-world
-                experiences to ambitious students
-                eager to build the future.
-              </p>
-            </div>
-          </div>
-        </motion.div>
+            font-medium
+          "
+        >
+          Industry Speaker
+        </span>
+      </div>
+    </div>
+  </div>
+</motion.div>
       </div>
     </section>
   )
