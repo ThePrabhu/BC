@@ -23,8 +23,6 @@ function App() {
       <AboutSection />
       <JoinSection />
       <Footer />
-
-
     </div>
   )
 }

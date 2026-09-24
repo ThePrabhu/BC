@@ -13,6 +13,8 @@ import GPREC1 from "../../assets/GPREC1.png"
 import GPREC2 from "../../assets/GPREC2.png"
 import GPREC3 from "../../assets/GPREC3.png"
 
+import outfieldVideo from "../../assets/OUTFIELD.mp4"
+
 
 const stories = [
   {
@@ -81,6 +83,25 @@ const stories = [
       "Community Building",
     ],
   },
+
+    {
+    chapter: "Chapter 04",
+    title: "OUTFIELD",
+    college: "BBA Student Experience",
+    location: "On-Ground Business Learning",
+
+    video: outfieldVideo,
+
+    description:
+      "OUTFIELD brought learning beyond the classroom. More than 20 BBA students were selected to experience the realities of the business world, understand how businesses operate on the ground, and gain exposure to entrepreneurship beyond textbooks. As part of the experience, students had the opportunity to meet the founder of True Black and learn directly from his journey, insights, and experience.",
+
+    highlights: [
+      "20+ BBA Students Selected",
+      "On-Ground Business Exposure",
+      "Founder Interaction",
+      "Learning Beyond Classrooms",
+    ],
+  },
 ]
 
 
@@ -145,6 +166,38 @@ function ImageCarousel({ images, title }) {
             `}
           />
         ))}
+      </div>
+    </div>
+  )
+}
+
+function VideoPlayer({ video, title }) {
+  return (
+    <div className="relative group">
+      <div
+        className="
+          absolute
+          -inset-4
+          rounded-[40px]
+          bg-[#800000]/15
+          blur-2xl
+          opacity-0
+          group-hover:opacity-100
+          transition-all
+          duration-700
+        "
+      />
+      <div className="relative w-full h-[300px] md:h-[500px] rounded-[32px] shadow-2xl overflow-hidden bg-black">
+        <video
+          src={video}
+          title={title}
+          autoPlay
+          muted
+          loop
+          playsInline
+          controls
+          className="w-full h-full object-cover"
+        />
       </div>
     </div>
   )
@@ -291,9 +344,13 @@ function StoryTimeline() {
                 }
               `}
             >
-              {/* IMAGE */}
+              {/* MEDIA */}
 
-              <ImageCarousel images={story.images} title={story.title} />
+              {story.video ? (
+                <VideoPlayer video={story.video} title={story.title} />
+              ) : (
+                <ImageCarousel images={story.images} title={story.title} />
+              )}
 
               {/* CONTENT */}
 
