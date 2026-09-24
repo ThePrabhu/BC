@@ -7,7 +7,7 @@ function AboutClosing() {
       label: "Students Impacted",
     },
     {
-      value: "3",
+      value: "4",
       label: "College Collaborations",
     },
     {

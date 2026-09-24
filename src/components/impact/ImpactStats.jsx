@@ -10,7 +10,7 @@ const stats = [
   },
 
   {
-    number: "3",
+    number: "4",
     label: "College Collaborations",
     description:
       "Partnering with leading campuses to create meaningful experiences.",

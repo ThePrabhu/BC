@@ -14,7 +14,8 @@ import GPREC2 from "../../assets/GPREC2.png"
 import GPREC3 from "../../assets/GPREC3.png"
 
 import outfieldVideo from "../../assets/OUTFIELD.mp4"
-
+import rakeshVideo from "../../assets/RAKESH.mp4"
+import swaroopVideo from "../../assets/Swaroop.mp4"
 
 const stories = [
   {
@@ -63,34 +64,49 @@ const stories = [
   },
 
   {
-    chapter: "Chapter 03",
-    title: "Innovation Drive",
-    college: "IIIT",
-    location: "Andhra Pradesh",
+  chapter: "Chapter 03",
+  title: "Innovation Drive",
+  college: "IIIT",
+  location: "Andhra Pradesh",
 
-    images: [
-      CE1,
-     CE2,
-      CE3,
-    ],
+  images: [
+    CE1,
+    CE2,
+    CE3,
+  ],
+
+  description:
+    "The IIIT event exceeded expectations. Student participation surprised everyone and the atmosphere became a hub of innovation, networking, and learning. The presence of renowned tech creator Swaroop added inspiration and energy to the experience.",
+
+  highlights: [
+    "Exceptional Student Engagement",
+    "Tech Influencer Swaroop",
+    "Networking & Innovation",
+    "Community Building",
+  ],
+
+  featuredSpeaker: {
+    name: "Swaroop",
+    video: swaroopVideo,
+
     description:
-      "The IIIT event exceeded expectations. Student participation surprised everyone and the atmosphere became a hub of innovation, networking, and learning. The presence of renowned tech creator Swaroop added inspiration and energy to the experience.",
+      "Bringing industry insights, inspiration, and real-world experiences to ambitious students eager to build the future.",
 
-    highlights: [
-      "Exceptional Student Engagement",
-      "Tech Influencer Swaroop",
-      "Networking & Innovation",
-      "Community Building",
+    roles: [
+      "Tech Creator",
+      "Mentor",
+      "Industry Speaker",
     ],
   },
-
+},
     {
     chapter: "Chapter 04",
     title: "OUTFIELD",
-    college: "BBA Student Experience",
-    location: "On-Ground Business Learning",
+    college: "AURA Global Business School",
+    location: "TRUE BALCK CAFE Hyderabad",
 
     video: outfieldVideo,
+    videoFit: "cover",
 
     description:
       "OUTFIELD brought learning beyond the classroom. More than 20 BBA students were selected to experience the realities of the business world, understand how businesses operate on the ground, and gain exposure to entrepreneurship beyond textbooks. As part of the experience, students had the opportunity to meet the founder of True Black and learn directly from his journey, insights, and experience.",
@@ -102,6 +118,25 @@ const stories = [
       "Learning Beyond Classrooms",
     ],
   },
+  {
+  chapter: "Chapter 4.2",
+  title: "OUTFIELD",
+  college: "AURA Global Business School",
+  location: "Fast Tracks Car Care, Hyderabad",
+
+  video: rakeshVideo,
+  videoFit: "portrait",
+
+  description:
+    "As part of OUTFIELD, the same group of 20+ BBA students continued their journey beyond the classroom with another on-ground business interaction. Students met Rakesh KNV from Fast Tracks Car Care and gained first-hand exposure to the realities of running a business, understanding operations, customer needs, and the practical decisions involved in building a business.",
+
+  highlights: [
+    "20+ BBA Students",
+    "Fast Tracks Car Care",
+    "Founder Interaction",
+    "Real-World Business Exposure",
+  ],
+},
 ]
 
 
@@ -171,7 +206,9 @@ function ImageCarousel({ images, title }) {
   )
 }
 
-function VideoPlayer({ video, title }) {
+function VideoPlayer({ video, title, fit = "cover" }) {
+  const portrait = fit === "portrait"
+
   return (
     <div className="relative group">
       <div
@@ -187,7 +224,7 @@ function VideoPlayer({ video, title }) {
           duration-700
         "
       />
-      <div className="relative w-full h-[300px] md:h-[500px] rounded-[32px] shadow-2xl overflow-hidden bg-black">
+      <div className={`relative ${portrait ? "w-full max-w-[min(100%,360px)] aspect-[9/16] mx-auto" : "w-full h-[300px] md:h-[500px]"} rounded-[32px] shadow-2xl overflow-hidden bg-black`}>
         <video
           src={video}
           title={title}
@@ -198,6 +235,53 @@ function VideoPlayer({ video, title }) {
           controls
           className="w-full h-full object-cover"
         />
+      </div>
+    </div>
+  )
+}
+
+function FeaturedSpeaker({ speaker }) {
+  return (
+    <div className="mt-12">
+      <p className="text-[#800000] uppercase tracking-[0.25em] text-xs font-bold">
+        Featured Speaker
+      </p>
+
+      <div className="mt-5 rounded-[28px] border border-black/10 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.03] backdrop-blur-xl overflow-hidden p-5 md:p-6">
+        <div className="flex flex-col sm:flex-row gap-6 items-center">
+          <div className="relative w-full sm:w-[min(52%,440px)] aspect-video rounded-[22px] overflow-hidden bg-black shadow-xl shrink-0">
+            <video
+              src={speaker.video}
+              autoPlay
+              muted
+              loop
+              playsInline
+              controls
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          <div className="flex-1">
+            <h4 className="text-2xl md:text-3xl font-bold text-[#111111] dark:text-white">
+              {speaker.name}
+            </h4>
+
+            <p className="mt-4 text-sm md:text-base leading-relaxed text-black/60 dark:text-white/60">
+              {speaker.description}
+            </p>
+
+            <div className="mt-6 flex flex-wrap gap-2">
+              {speaker.roles.map((role) => (
+                <span
+                  key={role}
+                  className="px-3 py-1.5 rounded-full text-xs font-medium border border-black/10 dark:border-white/10 bg-black/[0.03] dark:bg-white/[0.05] text-black/70 dark:text-white/70"
+                >
+                  {role}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
@@ -347,7 +431,7 @@ function StoryTimeline() {
               {/* MEDIA */}
 
               {story.video ? (
-                <VideoPlayer video={story.video} title={story.title} />
+                <VideoPlayer video={story.video} title={story.title} fit={story.videoFit} />
               ) : (
                 <ImageCarousel images={story.images} title={story.title} />
               )}
@@ -474,6 +558,10 @@ function StoryTimeline() {
                     </div>
                   ))}
                 </div>
+
+                {story.featuredSpeaker && (
+                  <FeaturedSpeaker speaker={story.featuredSpeaker} />
+                )}
               </div>
             </motion.div>
           ))}

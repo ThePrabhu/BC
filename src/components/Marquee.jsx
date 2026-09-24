@@ -18,7 +18,7 @@ function Marquee() {
     },
 
     {
-      text: "3+ College Campuses",
+      text: "4+ College Campuses",
       icon: <HiOutlineAcademicCap />
     },
 
