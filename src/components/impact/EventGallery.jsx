@@ -1,5 +1,4 @@
 import { motion } from "framer-motion"
-import speaker from "../../assets/swaroop2.png"
 
 const events = [
   {

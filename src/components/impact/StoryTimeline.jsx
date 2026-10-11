@@ -65,7 +65,7 @@ const stories = [
 
   {
   chapter: "Chapter 03",
-  title: "Innovation Drive",
+  title: "Code Edge",
   college: "IIIT",
   location: "Andhra Pradesh",
 
