@@ -257,8 +257,9 @@ function JoinMovement() {
                       inline-flex
                       items-center
                       gap-3
-
-                      text-[#800000]
+                      px-5
+                      py-2.5
+                      text-[#665c5c]
 
                       font-semibold
 
@@ -266,6 +267,10 @@ function JoinMovement() {
 
                       transition-all
                       duration-300
+                      bg-[#edeaea]
+                      rounded-full
+                      hover:bg-[#e2dfdf]
+                     hover:text-[#4a4242]
                     "
                   >
                     {item.button}

@@ -7,7 +7,6 @@ function ImpactSection() {
     <section id="impact">
       <StoryTimeline />
       {/* <StudentGallery /> */}
-      {/* <EventGallery /> */}
     </section>
   )
 }

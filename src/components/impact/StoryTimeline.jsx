@@ -19,52 +19,42 @@ import swaroopVideo from "../../assets/Swaroop.mp4"
 
 const stories = [
   {
-    chapter: "Chapter 01",
-    title: "Marathon Hackathon",
-    college: "RGM College of Engineering & Technology",
-    location: "Kurnool, Andhra Pradesh",
+    title: "OUTFIELD",
+    college: "AURA Global Business School",
+    location: "TRUE BALCK CAFE Hyderabad",
 
-    images: [
-      rgm1,
-      rgm2,
-      rgm3,
-    ],
+    video: outfieldVideo,
+    videoFit: "cover",
 
     description:
-      "Marathon Hackathon became one of ByondCampuz's defining milestones. Students spent 24 hours solving real-world problems, building solutions, collaborating under pressure, and experiencing innovation beyond traditional classrooms.",
+      "OUTFIELD brought learning beyond the classroom. More than 20 BBA students were selected to experience the realities of the business world, understand how businesses operate on the ground, and gain exposure to entrepreneurship beyond textbooks. As part of the experience, students had the opportunity to meet the founder of True Black and learn directly from his journey, insights, and experience.",
 
     highlights: [
-      "24-Hour Build Marathon",
-      "Custom SaaS Platform Developed",
-      "Team Tracking & Registrations",
-      "Hundreds of Participants",
+      "20+ BBA Students Selected",
+      "On-Ground Business Exposure",
+      "Founder Interaction",
+      "Learning Beyond Classrooms",
     ],
   },
-
   {
-    chapter: "Chapter 02",
-    title: "OutsysLayer Hackathon",
-    college: "G. Pullareddy College of Engineering (GPREC)",
-    location: "Kurnool, Andhra Pradesh",
+  title: "OUTFIELD",
+  college: "AURA Global Business School",
+  location: "Fast Tracks Car Care, Hyderabad",
 
-    images: [
-      GPREC1,
-      GPREC2,
-     GPREC3,
-    ],
-    description:
-      "Hosted at one of Kurnool's most respected engineering institutions, OutsysLayer challenged students to move beyond coding and think in systems. The event combined architecture, innovation, mentorship, and practical problem solving.",
+  video: rakeshVideo,
+  videoFit: "portrait",
 
-    highlights: [
-      "Prestigious Engineering Campus",
-      "Systems Thinking Approach",
-      "Industry Mentorship",
-      "Powered with Devnovate",
-    ],
-  },
+  description:
+    "As part of OUTFIELD, the same group of 20+ BBA students continued their journey beyond the classroom with another on-ground business interaction. Students met Rakesh KNV from Fast Tracks Car Care and gained first-hand exposure to the realities of running a business, understanding operations, customer needs, and the practical decisions involved in building a business.",
 
+  highlights: [
+    "20+ BBA Students",
+    "Fast Tracks Car Care",
+    "Founder Interaction",
+    "Real-World Business Exposure",
+  ],
+},
   {
-  chapter: "Chapter 03",
   title: "Code Edge",
   college: "IIIT",
   location: "Andhra Pradesh",
@@ -99,44 +89,48 @@ const stories = [
     ],
   },
 },
-    {
-    chapter: "Chapter 04",
-    title: "OUTFIELD",
-    college: "AURA Global Business School",
-    location: "TRUE BALCK CAFE Hyderabad",
+  {
+    title: "Marathon Hackathon",
+    college: "RGM College of Engineering & Technology",
+    location: "Kurnool, Andhra Pradesh",
 
-    video: outfieldVideo,
-    videoFit: "cover",
+    images: [
+      rgm1,
+      rgm2,
+      rgm3,
+    ],
 
     description:
-      "OUTFIELD brought learning beyond the classroom. More than 20 BBA students were selected to experience the realities of the business world, understand how businesses operate on the ground, and gain exposure to entrepreneurship beyond textbooks. As part of the experience, students had the opportunity to meet the founder of True Black and learn directly from his journey, insights, and experience.",
+      "Marathon Hackathon became one of ByondCampuz's defining milestones. Students spent 24 hours solving real-world problems, building solutions, collaborating under pressure, and experiencing innovation beyond traditional classrooms.",
 
     highlights: [
-      "20+ BBA Students Selected",
-      "On-Ground Business Exposure",
-      "Founder Interaction",
-      "Learning Beyond Classrooms",
+      "24-Hour Build Marathon",
+      "Custom SaaS Platform Developed",
+      "Team Tracking & Registrations",
+      "Hundreds of Participants",
     ],
   },
+
   {
-  chapter: "Chapter 4.2",
-  title: "OUTFIELD",
-  college: "AURA Global Business School",
-  location: "Fast Tracks Car Care, Hyderabad",
+    title: "OutsysLayer Hackathon",
+    college: "G. Pullareddy College of Engineering (GPREC)",
+    location: "Kurnool, Andhra Pradesh",
 
-  video: rakeshVideo,
-  videoFit: "portrait",
+    images: [
+      GPREC1,
+      GPREC2,
+     GPREC3,
+    ],
+    description:
+      "Hosted at one of Kurnool's most respected engineering institutions, OutsysLayer challenged students to move beyond coding and think in systems. The event combined architecture, innovation, mentorship, and practical problem solving.",
 
-  description:
-    "As part of OUTFIELD, the same group of 20+ BBA students continued their journey beyond the classroom with another on-ground business interaction. Students met Rakesh KNV from Fast Tracks Car Care and gained first-hand exposure to the realities of running a business, understanding operations, customer needs, and the practical decisions involved in building a business.",
-
-  highlights: [
-    "20+ BBA Students",
-    "Fast Tracks Car Care",
-    "Founder Interaction",
-    "Real-World Business Exposure",
-  ],
-},
+    highlights: [
+      "Prestigious Engineering Campus",
+      "Systems Thinking Approach",
+      "Industry Mentorship",
+      "Powered with Devnovate",
+    ],
+  },
 ]
 
 
@@ -232,7 +226,6 @@ function VideoPlayer({ video, title, fit = "cover" }) {
           muted
           loop
           playsInline
-          controls
           className="w-full h-full object-cover"
         />
       </div>
@@ -256,7 +249,6 @@ function FeaturedSpeaker({ speaker }) {
               muted
               loop
               playsInline
-              controls
               className="w-full h-full object-cover"
             />
           </div>
@@ -439,21 +431,6 @@ function StoryTimeline() {
               {/* CONTENT */}
 
               <div>
-                <p
-                  className="
-                    text-[#800000]
-
-                    uppercase
-
-                    tracking-[0.25em]
-
-                    text-xs
-
-                    font-bold
-                  "
-                >
-                  {story.chapter}
-                </p>
 
                 <h3
                   className="
@@ -464,7 +441,7 @@ function StoryTimeline() {
 
                     font-bold
 
-                    text-[#111111]
+                    text-[#800000]
                     dark:text-white
                   "
                 >

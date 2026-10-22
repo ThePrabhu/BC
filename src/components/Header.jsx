@@ -7,7 +7,7 @@ import {
   HiX,
   HiOutlineHome,
   HiOutlineLightningBolt,
-  HiOutlineCalendar,
+  // HiOutlineCalendar,
   HiOutlineUserGroup,
   HiOutlineMail,
 } from "react-icons/hi"
@@ -47,10 +47,10 @@ function Header() {
       icon: <HiOutlineLightningBolt size={16} />
     },
 
-    {
-      name: "Events",
-      icon: <HiOutlineCalendar size={16} />
-    },
+    // {
+    //   name: "Events",
+    //   icon: <HiOutlineCalendar size={16} />
+    // },
 
     {
       name: "About",
