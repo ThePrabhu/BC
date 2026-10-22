@@ -2,6 +2,8 @@ import IntroAnimation from "./components/IntroAnimation"
 import Header from "./components/Header"
 import Hero from "./components/Hero"
 import Marquee from "./components/Marquee"
+import Collaborators from "./components/Collaborators"
+import Speakers from "./components/Speakers"
 
 import ImpactSection from "./components/impact/ImpactSection"
 // import EventUniverse from "./components/events/EventUniverse"
@@ -18,6 +20,8 @@ function App() {
       <Header />
       <Hero />
       <Marquee />
+      <Collaborators />
+      <Speakers />
       <ImpactSection />
       {/* <EventUniverse /> */}
       <AboutSection />

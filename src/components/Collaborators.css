@@ -1,0 +1,117 @@
+.collaborators {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(5rem, 9vw, 8rem) 0;
+  background: #fafafa;
+}
+
+.collaborators-heading {
+  padding: 0 1.5rem;
+  margin: 0 auto clamp(2.75rem, 5vw, 4.5rem);
+  text-align: center;
+}
+
+.collaborators-eyebrow {
+  margin: 0;
+  color: #800000;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+}
+
+.collaborators-heading h2 {
+  margin: 1.25rem 0 0;
+  color: #111;
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+}
+
+.collaborators-heading h2 span {
+  color: #800000;
+}
+
+.collaborators-subtitle {
+  margin: 1.5rem 0 0;
+  color: rgba(17, 17, 17, 0.62);
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  line-height: 1.6;
+}
+
+.collaborators-marquee {
+  overflow: hidden;
+  width: 100%;
+  mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+}
+
+.collaborators-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: collaborators-scroll 42s linear infinite;
+  will-change: transform;
+}
+
+.collaborators-marquee:hover .collaborators-track {
+  animation-play-state: paused;
+}
+
+.collaborator {
+  display: flex;
+  width: clamp(190px, 19vw, 250px);
+  min-height: 190px;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.collaborator-logo {
+  display: flex;
+  width: clamp(100px, 9vw, 124px);
+  height: clamp(100px, 9vw, 124px);
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: white;
+  border: 1px solid rgba(17, 17, 17, 0.07);
+  box-shadow: 0 12px 32px rgba(17, 17, 17, 0.08);
+}
+
+.collaborator-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.collaborator p {
+  margin: 0;
+  max-width: 15rem;
+  color: #111;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-align: center;
+}
+
+@keyframes collaborators-scroll {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .collaborators-track {
+    animation: none;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+}
