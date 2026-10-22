@@ -90,7 +90,24 @@ export default function IntroAnimation() {
           <div className="intro-grain" />
 
           <div className="intro-stage">
-            <div className="scene">
+            <motion.div
+              className="scene"
+              initial={{ scale: 1, opacity: 1 }}
+              animate={
+                reduceMotion
+                  ? { scale: 1, opacity: 1 }
+                  : {
+                      scale: [1, 1, 6.5],
+                      opacity: [1, 1, 0],
+                    }
+              }
+              transition={{
+                delay: finalPageEnd,
+                duration: 0.7,
+                times: [0, 0.15, 1],
+                ease: [0.76, 0, 0.24, 1],
+              }}
+            >
               <motion.div
                 className="book"
                 initial={
@@ -193,7 +210,7 @@ export default function IntroAnimation() {
                   </span>
                 </motion.div>
               </motion.div>
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       )}

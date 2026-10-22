@@ -51,6 +51,9 @@
 .scene {
   perspective: 1800px;
   perspective-origin: 50% 45%;
+  position: relative;
+  transform-origin: center center;
+  will-change: transform, opacity;
 }
 
 .book {
