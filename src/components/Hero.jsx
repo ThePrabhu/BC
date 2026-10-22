@@ -19,7 +19,7 @@ function Hero() {
 
       <img
 
-        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop"
+        src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3Dhttps://images.unsplash.com/photo-1606761568499-6d2451b23c66?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3Dearch.brave.com/kjU0pAZvE14ojjOyCD4Zyd9mXfKiCOPXyQ5-FETj0bQ/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvNjk0/NzI1NDEwL3Bob3Rv/L3VuaXZlcnNpdHkt/c3R1ZGVudHMtc3R1/ZHlpbmctaW4tYS1n/cm91cC5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9VTU5Tm5r/ajdQUnZ2ZlphM3c3/UE9obmd0dHl5a0tn/dldwZDFKeVZ5RjBm/TT0https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
 
         alt="Students"
 
