@@ -123,6 +123,31 @@
   line-height: 1.55;
 }
 
+:root.dark .speakers {
+  background: #000;
+}
+
+:root.dark .speakers-heading h2,
+:root.dark .speaker-copy h3 {
+  color: #fff;
+}
+
+:root.dark .speakers-subtitle,
+:root.dark .speaker-description {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+:root.dark .speaker-card {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: #0c0c0c;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.28);
+}
+
+:root.dark .speaker-photo {
+  border-color: #171717;
+  background: #171717;
+}
+
 @keyframes speakers-scroll {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }

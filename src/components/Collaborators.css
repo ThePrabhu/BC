@@ -101,6 +101,24 @@
   text-align: center;
 }
 
+:root.dark .collaborators {
+  background: #000;
+}
+
+:root.dark .collaborators-heading h2,
+:root.dark .collaborator p {
+  color: #fff;
+}
+
+:root.dark .collaborators-subtitle {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+:root.dark .collaborator-logo {
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+}
+
 @keyframes collaborators-scroll {
   from { transform: translateX(-50%); }
   to { transform: translateX(0); }
