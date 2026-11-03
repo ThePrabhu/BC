@@ -29,6 +29,10 @@ const collaborators = [
     name: "Devnovate",
     logo: "https://images.openai.com/static-rsc-4/XjH4NOUpwOJa6wZmB6eUYpvhDjdvBYJ2A3_ia3YZXbIUmymgiQD6rBfQPKvKcLEicTmb9fgPWg9fFRBgXiEgnskMKFXLUqw3TDIo5GFb90d_4Adtk24K_xYhQPU76Q6ctc4GfHdTwEz8bQ8PfkPNe4p6tzNUG7cFxpVUGjzmftBT4hTLEAkdd--EpIG4ABUc?purpose=fullsize",
   },
+  {
+    name: "Tones Fashion",
+    logo: "https://scontent-hyd1-2.xx.fbcdn.net/v/t39.30808-1/298461611_160927683190743_1087097768893431483_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1080&ctp=s200x200&_nc_cat=101&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=8l64Iu8_xkgQ7kNvwGavodf&_nc_oc=Adp6c6ipVSGe2mAH6jzCsOgQrsqRkCHUTJI7PcNfSfgW0dZWAmetvtGGcShdlGw3vs0&_nc_zt=24&_nc_ht=scontent-hyd1-2.xx&_nc_gid=fKS9GJ6DWNDOyIW2zt7AqA&_nc_ss=7b289&oh=00_AQQVOypvwT_xTnZwZuS8OWPeTgguCnjlIgwHD6m4OepSaQ&oe=6AEF7EA4",
+  },
 ]
 
 function Collaborators() {

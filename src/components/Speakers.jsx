@@ -22,6 +22,13 @@ const speakers = [
     image: "https://i.ytimg.com/vi/kV5Lo-x-Ldg/oar2.jpg?sqp=-oaymwEYCJUDENAFSFqQAgHyq4qpAwcIARUAAIhC&rs=AOn4CLA7K-z0ey-2RQAGEf6xGMOI5M55gg&usqp=CCk",
     imagePosition: "center",
   },
+   {
+  name: "B.V.S. Ganesh",
+  role: "Founder, Tones Fashion & Content Creator at The Fashion Verge",
+  description: "A digital entrepreneur and fashion influencer sharing men's styling, grooming advice, and real-world insights on building a clothing brand.",
+  image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxJrsjlm1MT0XdqsKWpo0u1Y17pPz5gaG-x0Gus3DmGx03DD_OQkKYFcs&s=10", // Add your specific image URL here
+  imagePosition: "center",
+}
 ]
 
 function Speakers() {
