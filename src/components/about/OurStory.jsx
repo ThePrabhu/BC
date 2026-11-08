@@ -63,12 +63,28 @@ function StoryCopy({ step, active }) {
   );
 }
 
+function StoryIntroduction() {
+  return (
+    <header className="story-introduction">
+      <p className="story-kicker">OUR STORY</p>
+      <h2>
+        From a problem.
+        <br />
+        To a <span>movement.</span>
+      </h2>
+      <p>
+        Every company starts with an idea. Ours started with a frustration
+        shared by thousands of students.
+      </p>
+    </header>
+  );
+}
+
 function MobileStory() {
   return (
     <section className="story-mobile" aria-labelledby="story-mobile-title">
       <div className="story-mobile-heading">
-        <p className="story-kicker">OUR STORY</p>
-        <h2 id="story-mobile-title">From classroom to ecosystem.</h2>
+        <div id="story-mobile-title"><StoryIntroduction /></div>
       </div>
       <div className="story-mobile-orbit" aria-hidden="true"><span /><span /><span /></div>
       <div className="story-mobile-list">
@@ -140,7 +156,10 @@ function OurStory() {
     <section ref={containerRef} className="story-3d-section" aria-label="ByondCampuz story">
       <div className="story-backdrop" />
       <div className="story-3d-layout">
-        <div className="story-text-column"><StoryCopy step={storySteps[active]} active={active} /></div>
+        <div className="story-text-column">
+          <StoryIntroduction />
+          <StoryCopy step={storySteps[active]} active={active} />
+        </div>
         <div className="story-canvas-column">
           <Suspense fallback={<div className="story-loading">Preparing the ecosystem…</div>}>
             <StoryScene progressRef={progressRef} darkTheme={darkTheme} />

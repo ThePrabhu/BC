@@ -31,6 +31,29 @@
 .story-text-column { position: relative; z-index: 2; }
 .story-copy { max-width: 510px; }
 
+.story-introduction {
+  max-width: 440px;
+  margin-bottom: clamp(2rem, 4vh, 3.8rem);
+}
+
+.story-introduction h2 {
+  margin: 0;
+  color: #f7f1e9;
+  font-size: clamp(1.7rem, 2.7vw, 3rem);
+  font-weight: 650;
+  line-height: 1.02;
+  letter-spacing: -0.055em;
+}
+
+.story-introduction h2 span { color: #b54d56; }
+
+.story-introduction > p:last-child {
+  margin: 0.85rem 0 0;
+  color: rgba(247, 241, 233, 0.6);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
 .story-kicker {
   margin: 0 0 1.3rem;
   color: #c5957c;
@@ -138,6 +161,8 @@
 }
 
 .story-mobile h2 { font-size: clamp(2.8rem, 13vw, 4.6rem); }
+.story-mobile-heading .story-introduction { margin-bottom: 0; }
+.story-mobile-heading .story-introduction h2 { font-size: clamp(2.8rem, 13vw, 4.6rem); }
 
 .story-mobile-orbit {
   position: relative;
@@ -398,12 +423,14 @@ html:not(.dark) .story-backdrop {
 }
 
 html:not(.dark) .story-copy h2,
-html:not(.dark) .story-mobile h2 {
+html:not(.dark) .story-mobile h2,
+html:not(.dark) .story-introduction h2 {
   color: #211315;
 }
 
 html:not(.dark) .story-description,
-html:not(.dark) .story-mobile-card p {
+html:not(.dark) .story-mobile-card p,
+html:not(.dark) .story-introduction > p:last-child {
   color: rgba(33, 19, 21, 0.7);
 }
 
