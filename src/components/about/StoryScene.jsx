@@ -188,9 +188,9 @@ function Fallback() {
   return <div className="story-webgl-fallback"><span>BYONDCAMPUZ</span><p>Ideas connect. Ecosystems grow.</p></div>;
 }
 
-export default function StoryScene({ progressRef, darkTheme }) {
+export default function StoryScene({ progressRef, darkTheme, mobile = false }) {
   return (
-    <Canvas shadows dpr={[1, 1.5]} camera={{ position: [0, 3.1, 8.4], fov: 40 }} gl={{ antialias: true, powerPreference: "high-performance" }} fallback={<Fallback />}>
+    <Canvas shadows dpr={mobile ? [1, 1.15] : [1, 1.5]} camera={{ position: [0, 3.1, 8.4], fov: mobile ? 46 : 40 }} gl={{ antialias: true, powerPreference: "high-performance" }} fallback={<Fallback />}>
       <World progressRef={progressRef} darkTheme={darkTheme} />
     </Canvas>
   );

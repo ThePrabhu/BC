@@ -200,14 +200,26 @@
 }
 
 .story-mobile-card {
-  display: grid;
-  grid-template-columns: minmax(112px, 30%) 1fr;
-  gap: 1.15rem;
-  align-items: center;
   padding: 1.5rem;
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.035);
+}
+
+.story-mobile-canvas {
+  height: clamp(280px, 62vw, 440px);
+  margin: 0 auto 2rem;
+  overflow: hidden;
+  border: 1px solid rgba(218, 170, 131, 0.22);
+  border-radius: 20px;
+  background: #0a0809;
+  box-shadow: 0 22px 55px rgba(51, 18, 19, 0.24);
+}
+
+.story-mobile-canvas canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .story-mobile-visual {
@@ -378,15 +390,12 @@
   }
 
   .story-mobile-heading { margin-bottom: 2.6rem; }
-  .story-mobile-orbit { margin-bottom: 2.4rem; }
 
   .story-mobile-card {
-    grid-template-columns: 1fr;
-    gap: 1.15rem;
     padding: 1.15rem;
   }
 
-  .story-mobile-visual { min-height: 158px; }
+  .story-mobile-canvas { height: clamp(260px, 78vw, 390px); }
   .story-mobile-card h3 { font-size: 1.42rem; }
   .story-mobile-card p { font-size: 0.95rem; }
 }
@@ -398,10 +407,9 @@
 
 @media (max-height: 520px) and (orientation: landscape) {
   .story-mobile { padding-block: 3rem; }
-  .story-mobile-orbit { width: min(35vw, 200px); margin-bottom: 2rem; }
+  .story-mobile-canvas { height: min(54vh, 310px); }
   .story-mobile-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .story-mobile-card { grid-template-columns: 1fr; padding: 1rem; }
-  .story-mobile-visual { min-height: 104px; }
+  .story-mobile-card { padding: 1rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -453,6 +461,12 @@ html:not(.dark) .story-canvas-column {
     linear-gradient(140deg, rgba(128, 0, 0, 0.09), transparent 48%),
     #eee3d7;
   box-shadow: 0 28px 75px rgba(67, 33, 29, 0.15);
+}
+
+html:not(.dark) .story-mobile-canvas {
+  border-color: rgba(89, 44, 41, 0.16);
+  background: #eee3d7;
+  box-shadow: 0 20px 50px rgba(67, 33, 29, 0.14);
 }
 
 html:not(.dark) .story-scroll-cue {

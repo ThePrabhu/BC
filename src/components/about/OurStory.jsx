@@ -80,22 +80,41 @@ function StoryIntroduction() {
   );
 }
 
-function MobileStory() {
+function MobileStory({ darkTheme, reduceMotion }) {
+  const mobileRef = useRef(null);
+  const progressRef = useRef(0);
+
+  useEffect(() => {
+    if (reduceMotion || !mobileRef.current) return undefined;
+    gsap.registerPlugin(ScrollTrigger);
+    const trigger = ScrollTrigger.create({
+      trigger: mobileRef.current,
+      start: "top 70%",
+      end: "bottom 45%",
+      onUpdate: (self) => {
+        progressRef.current = self.progress;
+      },
+    });
+    return () => trigger.kill();
+  }, [reduceMotion]);
+
   return (
-    <section className="story-mobile" aria-labelledby="story-mobile-title">
+    <section ref={mobileRef} className="story-mobile" aria-labelledby="story-mobile-title">
       <div className="story-mobile-heading">
         <div id="story-mobile-title"><StoryIntroduction /></div>
       </div>
-      <div className="story-mobile-orbit" aria-hidden="true"><span /><span /><span /></div>
+      <div className="story-mobile-canvas">
+        <Suspense fallback={<div className="story-loading">Preparing the ecosystem…</div>}>
+          <StoryScene
+            progressRef={progressRef}
+            darkTheme={darkTheme}
+            mobile
+          />
+        </Suspense>
+      </div>
       <div className="story-mobile-list">
         {storySteps.map((step) => (
           <article key={step.number} className="story-mobile-card">
-            <div
-              className={`story-mobile-visual story-mobile-visual-${step.number}`}
-              aria-hidden="true"
-            >
-              <i /><i /><i /><i />
-            </div>
             <div className="story-mobile-card-copy">
               <span>{step.number}</span>
               <h3>{step.title}</h3>
@@ -150,7 +169,9 @@ function OurStory() {
     return () => context.revert();
   }, [desktop, reduceMotion]);
 
-  if (!desktop) return <MobileStory />;
+  if (!desktop) {
+    return <MobileStory darkTheme={darkTheme} reduceMotion={reduceMotion} />;
+  }
 
   return (
     <section ref={containerRef} className="story-3d-section" aria-label="ByondCampuz story">
