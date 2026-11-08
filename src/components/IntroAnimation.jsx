@@ -42,12 +42,16 @@ const pageDuration = 1.05;
 const pageDelay = 0.72;
 const openingDelay = 1.65;
 const firstPageDelay = openingDelay + 0.85;
-const finalPageEnd =
+const finalPageRevealEnd =
   firstPageDelay +
-  (chapters.length - 1) * pageDelay +
+  (chapters.length - 2) * pageDelay +
   pageDuration;
+const finalPageHold = 0.5;
+const zoomDelay = finalPageRevealEnd + finalPageHold;
+const zoomDuration = 0.7;
+const exitDuration = 0.5;
 
-const introDuration = (finalPageEnd + 0.85) * 1000;
+const introDuration = (zoomDelay + zoomDuration + exitDuration) * 1000;
 
 export default function IntroAnimation() {
   const [showIntro, setShowIntro] = useState(true);
@@ -102,8 +106,8 @@ export default function IntroAnimation() {
                     }
               }
               transition={{
-                delay: finalPageEnd,
-                duration: 0.7,
+                delay: zoomDelay,
+                duration: zoomDuration,
                 times: [0, 0.15, 1],
                 ease: [0.76, 0, 0.24, 1],
               }}
@@ -155,12 +159,22 @@ export default function IntroAnimation() {
                       animate={
                         reduceMotion
                           ? { rotateY: 0 }
-                          : { rotateY: -180 }
+                          : index < chapters.length - 1
+                            ? {
+                                rotateY: -180,
+                                boxShadow: [
+                                  "2px 0 3px rgba(40, 28, 18, 0.16)",
+                                  "20px 8px 28px rgba(0, 0, 0, 0.3)",
+                                  "-2px 0 3px rgba(40, 28, 18, 0.12)",
+                                ],
+                              }
+                            : { rotateY: 0 }
                       }
                       transition={{
                         delay: firstPageDelay + index * pageDelay,
                         duration: pageDuration,
                         ease: [0.65, 0, 0.35, 1],
+                        times: [0, 0.5, 1],
                       }}
                       style={{
                         zIndex: chapters.length - index,
