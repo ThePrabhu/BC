@@ -3,7 +3,7 @@ import "./Collaborators.css"
 const collaborators = [
   {
     name: "AURA Global Business School",
-    logo: "https://aurabschool.com/wp-content/uploads/2026/08/cropped-Aura-Degree-College-Logo-1.png",
+    logo: "https://static.wixstatic.com/media/c49abf_8745db284ec14bf58bc0eb5170ee72a5~mv2.png",
   },
   {
     name: "GPREC, Kurnool",
@@ -17,6 +17,10 @@ const collaborators = [
     name: "IIIT RGUKT RK Valley",
     logo: "https://images.openai.com/static-rsc-4/R-Yxl3aJOxRqDEmFwckUIcCauk_hhz1qMHIylikoOwzIy1bPm9K9LNhR2Cilo-FZPn6a7wUwLR825umqkNIEmpU6bdsMJ3cR0ukATAOcqQaSGFMvLlgHe16h1BmXAD2uED5Y9qwqtXY_e-ojivqv_fArST4xGUgNjoFbiqmSXax-6yIwvMMemU2y3pUuA8jW?purpose=fullsize",
   },
+    {
+    name: "Devnovate",
+    logo: "https://images.openai.com/static-rsc-4/XjH4NOUpwOJa6wZmB6eUYpvhDjdvBYJ2A3_ia3YZXbIUmymgiQD6rBfQPKvKcLEicTmb9fgPWg9fFRBgXiEgnskMKFXLUqw3TDIo5GFb90d_4Adtk24K_xYhQPU76Q6ctc4GfHdTwEz8bQ8PfkPNe4p6tzNUG7cFxpVUGjzmftBT4hTLEAkdd--EpIG4ABUc?purpose=fullsize",
+  },
   {
     name: "True Black Cafe",
     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyzVSpXAMDLR2Jei36EDAUtHLso3F6AerPl6qhG2ot9D1P_bLYzbAchw&s=10",
@@ -26,12 +30,8 @@ const collaborators = [
     logo: "https://images.openai.com/static-rsc-4/zaPyTNdY1Ddw-1mqQdFmnOqB1iJjtgqrmjDhQUQ5h79QzgoeWDbrqja72tx4u28mNqMaztI9CCa1hy3Ubiy38-bRK3iOSw0-10cUKLVeMI0T7o2hmLN8WnW8Z5KjppJP-x9KVbjpm66Yg16bHwSe_GJZLaRmQ-UeXP-KwXA_u8b2J7URIAIwPFs9BfRKtMcx?purpose=fullsize",
   },
   {
-    name: "Devnovate",
-    logo: "https://images.openai.com/static-rsc-4/XjH4NOUpwOJa6wZmB6eUYpvhDjdvBYJ2A3_ia3YZXbIUmymgiQD6rBfQPKvKcLEicTmb9fgPWg9fFRBgXiEgnskMKFXLUqw3TDIo5GFb90d_4Adtk24K_xYhQPU76Q6ctc4GfHdTwEz8bQ8PfkPNe4p6tzNUG7cFxpVUGjzmftBT4hTLEAkdd--EpIG4ABUc?purpose=fullsize",
-  },
-  {
     name: "Tones Fashion",
-    logo: "https://scontent-hyd1-2.xx.fbcdn.net/v/t39.30808-1/298461611_160927683190743_1087097768893431483_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1080&ctp=s200x200&_nc_cat=101&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=8l64Iu8_xkgQ7kNvwGavodf&_nc_oc=Adp6c6ipVSGe2mAH6jzCsOgQrsqRkCHUTJI7PcNfSfgW0dZWAmetvtGGcShdlGw3vs0&_nc_zt=24&_nc_ht=scontent-hyd1-2.xx&_nc_gid=fKS9GJ6DWNDOyIW2zt7AqA&_nc_ss=7b289&oh=00_AQQVOypvwT_xTnZwZuS8OWPeTgguCnjlIgwHD6m4OepSaQ&oe=6AEF7EA4",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_MHRstZidxG7atiRZChoHKe-dU2mAtBCQAzN9--10jg&s",
   },
 ]
 
