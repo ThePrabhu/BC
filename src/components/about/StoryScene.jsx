@@ -144,7 +144,7 @@ function Ecosystem({ reveal }) {
   );
 }
 
-function World({ progressRef, darkTheme }) {
+function World({ progressRef, darkTheme, mobile }) {
   const education = useRef();
   const industry = useRef();
   const bridgeReveal = useRef(0);
@@ -161,7 +161,10 @@ function World({ progressRef, darkTheme }) {
     if (education.current) education.current.position.x = mix(-0.5, -2.3, separation);
     if (industry.current) industry.current.position.x = mix(0.5, 2.3, separation);
     const pullback = smooth(range(progress, 0.7, 1));
-    camera.position.lerp(new THREE.Vector3(mix(0, 0.2, pullback), mix(3.1, 5.7, pullback), mix(8.4, 13.2, pullback)), 0.055);
+    const targetPosition = mobile
+      ? new THREE.Vector3(mix(0, 0.1, pullback), mix(4.1, 6.5, pullback), mix(11.5, 17.5, pullback))
+      : new THREE.Vector3(mix(0, 0.2, pullback), mix(3.1, 5.7, pullback), mix(8.4, 13.2, pullback));
+    camera.position.lerp(targetPosition, 0.055);
     camera.lookAt(0, mix(0.2, 0.48, pullback), 0);
   });
 
@@ -190,8 +193,8 @@ function Fallback() {
 
 export default function StoryScene({ progressRef, darkTheme, mobile = false }) {
   return (
-    <Canvas shadows dpr={mobile ? [1, 1.15] : [1, 1.5]} camera={{ position: [0, 3.1, 8.4], fov: mobile ? 46 : 40 }} gl={{ antialias: true, powerPreference: "high-performance" }} fallback={<Fallback />}>
-      <World progressRef={progressRef} darkTheme={darkTheme} />
+    <Canvas shadows dpr={mobile ? [1, 1.15] : [1, 1.5]} camera={{ position: mobile ? [0, 4.1, 11.5] : [0, 3.1, 8.4], fov: mobile ? 54 : 40 }} gl={{ antialias: true, powerPreference: "high-performance" }} fallback={<Fallback />}>
+      <World progressRef={progressRef} darkTheme={darkTheme} mobile={mobile} />
     </Canvas>
   );
 }
