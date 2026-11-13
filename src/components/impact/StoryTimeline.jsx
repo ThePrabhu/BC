@@ -391,7 +391,7 @@ function StoryTimeline() {
         <div className="mt-24 space-y-32">
           {stories.map((story, index) => (
             <motion.div
-              key={story.title}
+              key={`${story.title}-${story.location}`}
               initial={{
                 opacity: 0,
                 y: 80,

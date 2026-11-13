@@ -147,6 +147,64 @@
 }
 .story-webgl-fallback span { color: #c5957c; font-size: .75rem; font-weight: 800; letter-spacing: .25em; }
 .story-webgl-fallback p { margin: 0; }
+.story-webgl-fallback { position: absolute; inset: 0; overflow: hidden; }
+.story-fallback-world {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 70%, rgba(157, 69, 49, .46), transparent 38%),
+    linear-gradient(180deg, #25191a 0%, #171011 58%, #0d090a 100%);
+}
+.story-fallback-world::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  opacity: .25;
+  background-image: linear-gradient(rgba(235, 201, 168, .14) 1px, transparent 1px), linear-gradient(90deg, rgba(235, 201, 168, .12) 1px, transparent 1px);
+  background-size: 70px 70px;
+  transform: perspective(360px) rotateX(58deg) scale(1.7) translateY(16%);
+  transform-origin: center bottom;
+  mask-image: linear-gradient(transparent, #000 45%);
+}
+.story-fallback-world .fallback-platform {
+  position: absolute;
+  left: 50%;
+  bottom: 27%;
+  width: min(62vw, 690px);
+  height: 26%;
+  border: 1px solid rgba(233, 187, 145, .42);
+  background: linear-gradient(145deg, rgba(133, 76, 57, .8), rgba(40, 26, 27, .94));
+  box-shadow: 0 34px 90px rgba(0,0,0,.5), inset 0 1px rgba(255,255,255,.15);
+  transform: translateX(-50%) perspective(480px) rotateX(55deg);
+}
+.story-fallback-world .fallback-bridge {
+  position: absolute;
+  left: 50%;
+  bottom: 37%;
+  width: min(48vw, 530px);
+  height: 5px;
+  background: #d8a06f;
+  box-shadow: 0 0 24px rgba(189, 88, 49, .85);
+  transform: translateX(-50%);
+}
+.story-fallback-world i {
+  position: absolute;
+  bottom: 37%;
+  width: 12px;
+  height: 76px;
+  border-radius: 50%;
+  background: linear-gradient(#d6aa84 0 18%, #542e2d 18% 100%);
+  box-shadow: 0 0 24px rgba(213, 135, 86, .25);
+}
+.story-fallback-world i:nth-of-type(1) { left: 28%; }
+.story-fallback-world i:nth-of-type(2) { left: 40%; height: 61px; }
+.story-fallback-world i:nth-of-type(3) { right: 40%; height: 66px; }
+.story-fallback-world i:nth-of-type(4) { right: 28%; }
+.story-webgl-fallback > span,
+.story-webgl-fallback > p { position: relative; z-index: 1; }
+.story-webgl-fallback > span { margin-top: auto; }
+.story-webgl-fallback > p { margin-bottom: auto; }
 
 html.dark .story-section { background: #111; }
 html.dark .story-introduction h2 { color: #f7f1e9; }

@@ -1,6 +1,6 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { ContactShadows, Line } from "@react-three/drei";
-import { useMemo, useRef } from "react";
+import { Component, useMemo, useRef } from "react";
 import * as THREE from "three";
 
 const clamp = (value) => Math.max(0, Math.min(1, value));
@@ -188,13 +188,27 @@ function World({ progressRef, darkTheme, mobile }) {
 }
 
 function Fallback() {
-  return <div className="story-webgl-fallback"><span>BYONDCAMPUZ</span><p>Ideas connect. Ecosystems grow.</p></div>;
+  return <div className="story-webgl-fallback"><div className="story-fallback-world" aria-hidden="true"><span className="fallback-platform" /><span className="fallback-bridge" /><i /><i /><i /><i /></div><span>BYONDCAMPUZ</span><p>Ideas connect. Ecosystems grow.</p></div>;
+}
+
+class StoryCanvasBoundary extends Component {
+  state = { failed: false };
+
+  static getDerivedStateFromError() { return { failed: true }; }
+
+  componentDidCatch(error) { console.error("Story scene could not initialize WebGL:", error); }
+
+  render() {
+    return this.state.failed ? <Fallback /> : this.props.children;
+  }
 }
 
 export default function StoryScene({ progressRef, darkTheme, mobile = false }) {
   return (
-    <Canvas shadows dpr={mobile ? [1, 1.15] : [1, 1.5]} camera={{ position: mobile ? [0, 4.1, 11.5] : [0, 3.1, 8.4], fov: mobile ? 54 : 40 }} gl={{ antialias: true, powerPreference: "high-performance" }} fallback={<Fallback />}>
-      <World progressRef={progressRef} darkTheme={darkTheme} mobile={mobile} />
-    </Canvas>
+    <StoryCanvasBoundary>
+      <Canvas shadows dpr={mobile ? [1, 1.15] : [1, 1.5]} camera={{ position: mobile ? [0, 4.1, 11.5] : [0, 3.1, 8.4], fov: mobile ? 54 : 40 }} gl={{ antialias: true, powerPreference: "high-performance" }} fallback={<Fallback />}>
+        <World progressRef={progressRef} darkTheme={darkTheme} mobile={mobile} />
+      </Canvas>
+    </StoryCanvasBoundary>
   );
 }

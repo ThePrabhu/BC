@@ -81,15 +81,22 @@
   box-shadow: 0 0 55px rgba(128, 0, 0, 0.22);
 }
 
+/* Back hardcover */
 .back-cover {
   position: absolute;
   inset: 0;
+  z-index: 0;
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 7px 12px 12px 7px;
-  background: linear-gradient(140deg, #1a1a1a, #080808 70%);
+  background: linear-gradient(
+    140deg,
+    #1a1a1a,
+    #080808 70%
+  );
   box-shadow: 12px 15px 35px rgba(0, 0, 0, 0.4);
 }
 
+/* Layered paper edges */
 .page-stack {
   position: absolute;
   inset: 0;
@@ -115,13 +122,16 @@
   background: #d9d1c4;
 }
 
+/* Story page container */
 .pages-wrapper {
   position: absolute;
   inset: 0;
+  z-index: 2;
   transform-style: preserve-3d;
   perspective: 1800px;
 }
 
+/* Individual pages */
 .page {
   position: absolute;
   inset: 4px 5px 4px 4px;
@@ -142,6 +152,7 @@
   -webkit-backface-visibility: hidden;
 }
 
+/* Front paper */
 .page-front {
   background:
     linear-gradient(
@@ -163,16 +174,16 @@
 }
 
 .page-front::after {
-  background:
-    linear-gradient(
-      90deg,
-      rgba(62, 43, 26, 0.16),
-      transparent 9%,
-      transparent 84%,
-      rgba(62, 43, 26, 0.06)
-    );
+  background: linear-gradient(
+    90deg,
+    rgba(62, 43, 26, 0.16),
+    transparent 9%,
+    transparent 84%,
+    rgba(62, 43, 26, 0.06)
+  );
 }
 
+/* Reverse paper */
 .page-back {
   transform: rotateY(180deg);
   background:
@@ -196,7 +207,10 @@
   );
 }
 
+/* Page content */
 .page-content {
+  position: relative;
+  width: 100%;
   height: 100%;
   padding: 28px 24px;
   display: flex;
@@ -248,6 +262,7 @@
   color: #9b9188;
 }
 
+/* Separate front hardcover */
 .cover {
   position: absolute;
   inset: 0;
@@ -257,22 +272,28 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+
   transform-origin: left center;
   transform-style: preserve-3d;
+
   border: 1px solid rgba(255, 255, 255, 0.11);
   border-radius: 7px 12px 12px 7px;
-  background:
-    linear-gradient(
-      135deg,
-      #202020,
-      #0b0b0b 58%,
-      #151515
-    );
+
+  background: linear-gradient(
+    135deg,
+    #202020,
+    #0b0b0b 58%,
+    #151515
+  );
+
   box-shadow:
     12px 18px 42px rgba(0, 0, 0, 0.42),
     inset 2px 0 3px rgba(255, 255, 255, 0.06);
+
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+
+  will-change: transform;
 }
 
 .cover-highlight {
@@ -306,6 +327,7 @@
   text-align: center;
 }
 
+/* Mobile */
 @media (max-width: 640px) {
   .intro-stage {
     padding: 20px;

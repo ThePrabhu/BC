@@ -38,43 +38,74 @@ const chapters = [
   },
 ];
 
-const pageDuration = 1.05;
-const pageDelay = 0.72;
-const openingDelay = 1.65;
-const firstPageDelay = openingDelay + 0.85;
-const finalPageRevealEnd =
-  firstPageDelay +
-  (chapters.length - 2) * pageDelay +
-  pageDuration;
-const finalPageHold = 0.5;
-const zoomDelay = finalPageRevealEnd + finalPageHold;
-const zoomDuration = 0.7;
-const exitDuration = 0.5;
+// ======================================
+// ANIMATION TIMING
+// ======================================
 
-const introDuration = (zoomDelay + zoomDuration + exitDuration) * 1000;
+const bookSettleDuration = 1.45;
+
+// Logo cover pause
+const coverHold = 0.65;
+
+// Cover opening
+const coverOpenAt = bookSettleDuration + coverHold;
+const coverOpenDuration = 1.2;
+
+// First page starts after cover opens
+const firstPagePause = 0.35;
+
+const firstPageFlipAt =
+  coverOpenAt + coverOpenDuration + firstPagePause;
+
+// Page turning
+const pageDuration = 1.05;
+
+// Small breathing space BETWEEN completed page turns
+const pageGap = 0.12;
+
+// CRITICAL FIX:
+// Every page starts only after the previous page finishes.
+const pageInterval = pageDuration + pageGap;
+
+// Four pages turn. Page 05 remains visible.
+const totalPageTurns = chapters.length - 1;
+
+const lastPageFlipAt =
+  firstPageFlipAt +
+  (totalPageTurns - 1) * pageInterval;
+
+const finalPageRevealEnd =
+  lastPageFlipAt + pageDuration;
+
+const finalPageHold = 0.5;
+
+const zoomDelay =
+  finalPageRevealEnd + finalPageHold;
+
+const zoomDuration = 0.7;
+const exitDuration = 0.65;
+
+const introDuration =
+  (zoomDelay + zoomDuration + 0.1) * 1000;
+
+
+// ======================================
+// INTRO ANIMATION
+// ======================================
 
 export default function IntroAnimation() {
   const [showIntro, setShowIntro] = useState(true);
+
   const reduceMotion = useReducedMotion();
 
   useEffect(() => {
-    const timer = window.setTimeout(() => {
-      setShowIntro(false);
-    }, reduceMotion ? 1000 : introDuration);
+    const timer = window.setTimeout(
+      () => setShowIntro(false),
+      reduceMotion ? 1000 : introDuration
+    );
 
     return () => window.clearTimeout(timer);
   }, [reduceMotion]);
-
-  const coverVariants = {
-    closed: { rotateY: 0 },
-    open: {
-      rotateY: -165,
-      transition: {
-        duration: 1.2,
-        ease: [0.65, 0, 0.35, 1],
-      },
-    },
-  };
 
   return (
     <AnimatePresence>
@@ -85,7 +116,7 @@ export default function IntroAnimation() {
           exit={{
             opacity: 0,
             transition: {
-              duration: 0.65,
+              duration: exitDuration,
               ease: "easeInOut",
             },
           }}
@@ -96,10 +127,16 @@ export default function IntroAnimation() {
           <div className="intro-stage">
             <motion.div
               className="scene"
-              initial={{ scale: 1, opacity: 1 }}
+              initial={{
+                scale: 1,
+                opacity: 1,
+              }}
               animate={
                 reduceMotion
-                  ? { scale: 1, opacity: 1 }
+                  ? {
+                      scale: 1,
+                      opacity: 1,
+                    }
                   : {
                       scale: [1, 1, 6.5],
                       opacity: [1, 1, 0],
@@ -137,7 +174,7 @@ export default function IntroAnimation() {
                       }
                 }
                 transition={{
-                  duration: 1.45,
+                  duration: bookSettleDuration,
                   times: [0, 0.78, 1],
                   ease: [0.22, 1, 0.36, 1],
                 }}
@@ -150,28 +187,35 @@ export default function IntroAnimation() {
 
                 <div className="back-cover" />
 
+                {/* STORY PAGES */}
+
                 <div className="pages-wrapper">
                   {chapters.map((chapter, index) => (
                     <motion.div
                       className={`page page${index + 1}`}
                       key={chapter.number}
-                      initial={{ rotateY: 0 }}
+                      initial={{
+                        rotateY: 0,
+                      }}
                       animate={
-                        reduceMotion
-                          ? { rotateY: 0 }
-                          : index < chapters.length - 1
-                            ? {
-                                rotateY: -180,
-                                boxShadow: [
-                                  "2px 0 3px rgba(40, 28, 18, 0.16)",
-                                  "20px 8px 28px rgba(0, 0, 0, 0.3)",
-                                  "-2px 0 3px rgba(40, 28, 18, 0.12)",
-                                ],
-                              }
-                            : { rotateY: 0 }
+                        reduceMotion ||
+                        index === chapters.length - 1
+                          ? {
+                              rotateY: 0,
+                            }
+                          : {
+                              rotateY: -180,
+                              boxShadow: [
+                                "2px 0 3px rgba(40, 28, 18, 0.16)",
+                                "20px 8px 28px rgba(0, 0, 0, 0.3)",
+                                "-2px 0 3px rgba(40, 28, 18, 0.12)",
+                              ],
+                            }
                       }
                       transition={{
-                        delay: firstPageDelay + index * pageDelay,
+                        delay:
+                          firstPageFlipAt +
+                          index * pageInterval,
                         duration: pageDuration,
                         ease: [0.65, 0, 0.35, 1],
                         times: [0, 0.5, 1],
@@ -185,11 +229,15 @@ export default function IntroAnimation() {
                           <span className="page-number">
                             {chapter.number} / 05
                           </span>
+
                           <span className="page-eyebrow">
                             {chapter.eyebrow}
                           </span>
+
                           <h2>{chapter.title}</h2>
+
                           <p>{chapter.description}</p>
+
                           <span className="page-footer">
                             THINK BEYOND BOUNDARIES
                           </span>
@@ -204,21 +252,36 @@ export default function IntroAnimation() {
                   ))}
                 </div>
 
+                {/* FRONT COVER WITH LOGO */}
+
                 <motion.div
                   className="cover"
-                  variants={coverVariants}
-                  initial="closed"
-                  animate={reduceMotion ? "closed" : "open"}
+                  initial={{
+                    rotateY: 0,
+                  }}
+                  animate={
+                    reduceMotion
+                      ? {
+                          rotateY: 0,
+                        }
+                      : {
+                          rotateY: -165,
+                        }
+                  }
                   transition={{
-                    delay: openingDelay,
+                    delay: coverOpenAt,
+                    duration: coverOpenDuration,
+                    ease: [0.65, 0, 0.35, 1],
                   }}
                 >
                   <div className="cover-highlight" />
+
                   <img
                     src={logo}
                     alt="ByondCampuz"
                     className="logo"
                   />
+
                   <span className="cover-caption">
                     THINK BEYOND BOUNDARIES
                   </span>
